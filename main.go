@@ -1,17 +1,13 @@
 package main
 
 import (
-	"github.com/dharmasastra/restWithIris/controllers"
+	"github.com/dharmasastra/restWithIris/config"
 	"github.com/kataras/iris"
+	"log"
 )
 
 func main() {
-	app := iris.Default()
+	app := config.NewRouter()
 
-	app.Get("/", controllers.GetAllPerson)
-	app.Post("/person", controllers.CreatePerson)
-	app.Get("/{name:string}", controllers.GetPerson)
-	app.Post("/{name:string}", controllers.UpdatePerson)
-
-	_ = app.Run(iris.Addr(":8080"))
+	log.Fatal(app.Run(iris.Addr(":8080")))
 }

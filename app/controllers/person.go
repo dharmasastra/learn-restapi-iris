@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"fmt"
-	"github.com/dharmasastra/restWithIris/models"
+	"github.com/dharmasastra/restWithIris/app/models"
 	"github.com/kataras/iris"
 	"net/http"
 )

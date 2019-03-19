@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/dharmasastra/restWithIris/models"
+	"github.com/dharmasastra/restWithIris/app/models"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
