@@ -61,6 +61,22 @@ func UpdatePerson(i iris.Context) {
 
 }
 
+func DeletePerson(i iris.Context) {
+	name := i.Params().Get("name")
+
+	person := getPersonOr404(i, name)
+	if person == nil {
+		i.StatusCode(http.StatusNotFound)
+		return
+	}
+	if err := db.Delete(&person).Error; err != nil {
+		i.StatusCode(http.StatusInternalServerError)
+		fmt.Println(err)
+		return
+	}
+	_, _ = i.JSON(iris.Map{"message": name + " deleted"})
+}
+
 func getPersonOr404(i iris.Context, name string) *models.Person {
 	person := models.Person{}
 

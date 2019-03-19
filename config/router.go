@@ -29,6 +29,7 @@ func NewRouter() *iris.Application {
 	app.Post("/person", controllers.CreatePerson)
 	app.Get("/{name:string}", controllers.GetPerson)
 	app.Post("/{name:string}", controllers.UpdatePerson)
+	app.Delete("/{name:string}", controllers.DeletePerson)
 
 	return app
 }
