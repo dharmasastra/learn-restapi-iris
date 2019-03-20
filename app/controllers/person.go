@@ -10,7 +10,7 @@ import (
 func GetAllPerson(i iris.Context) {
 	var person []models.Person
 
-	if err := db.Find(&person).Error; err != nil {
+	if err := db.Preload("Addresses").Find(&person).Error; err != nil {
 		i.StatusCode(http.StatusNotFound)
 		fmt.Println(err)
 	}
